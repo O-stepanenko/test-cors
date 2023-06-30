@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Pages REST Request Example</title>
+</head>
+<body>
+  <button onclick="sendRequest()">Send REST Request</button>
+
+  <script>
+    function sendRequest() {
+      var request = new XMLHttpRequest();
+      var url = "https://staging-api.thehomelike.xyz/ping";
+      var method = "GET";
+
+      request.open(method, url, true);
+      request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+          // Request was successful
+          var response = JSON.parse(request.responseText);
+          console.log(response);
+        } else {
+          // Request failed
+          console.log("Request failed. Status: " + request.status);
+        }
+      };
+
+      // Set request headers if needed (e.g., authentication headers)
+      // request.setRequestHeader("Authorization", "Bearer YOUR_ACCESS_TOKEN");
+
+      // Set request body if needed
+      // var requestBody = JSON.stringify({ /* Your request body here */ });
+      // request.send(requestBody);
+
+      request.send();
+    }
+  </script>
+</body>
+</html>
