@@ -4,12 +4,11 @@
   <title>GitHub Pages REST Request Example</title>
 </head>
 <body>
-  <button onclick="sendRequest()">Send REST Request</button>
-
+  <button onclick="sendRequest("https://feature-dt-2417-api.thehomelike.xyz/ping")">Send PING Request</button>
+  
   <script>
-    function sendRequest() {
+    function sendRequest(url) {
       var request = new XMLHttpRequest();
-      var url = "https://staging-api.thehomelike.xyz/ping";
       var method = "GET";
 
       request.open(method, url, true);
